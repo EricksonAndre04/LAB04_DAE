@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Entradas de {{ autor.nombre }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            padding: 20px 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 20px;
+            margin: 0;
+        }
+        li {
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        p {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Entradas de {{ autor.nombre }}</h1>
+    <ul>
+        {% for entrada in entradas %}
+            <li><strong>{{ entrada.titulo }}</strong> -
+               <em>{{ entrada.fecha_publicacion }}</em>
+               <p>{{ entrada.contenido }}</p></li>
+        {% empty %}
+            <li>Este autor aun no tiene entradas</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
